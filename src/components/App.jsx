@@ -12,28 +12,26 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = stateKey => {
-    if (stateKey === 'good') {
-      this.setState(prevState => ({
-        good: prevState.good + 1,
-      }));
-      return;
-    }
-
-    if (stateKey === 'neutral') {
-      this.setState(prevState => ({
-        neutral: prevState.neutral + 1,
-      }));
-      return;
-    }
-
-    if (stateKey === 'bad') {
-      this.setState(prevState => ({
-        bad: prevState.bad + 1,
-      }));
-      return;
-    }
+  onLeaveFeedback = (option) => {
+    this.setState((prevState) => ({
+      [option]: prevState[option] + 1,
+    }));
   };
+
+    //if (stateKey === 'neutral') {
+     // this.setState(prevState => ({
+       // neutral: prevState.neutral + 1,
+      //}));
+      //return;
+    //}
+
+    //if (stateKey === 'bad') {
+     // this.setState(prevState => ({
+       // bad: prevState.bad + 1,
+     // }));
+      //return;
+   // }
+ // };
 
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
